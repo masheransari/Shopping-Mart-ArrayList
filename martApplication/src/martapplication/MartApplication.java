@@ -78,10 +78,6 @@ public class MartApplication {
             choice = s.nextInt();
             switch (choice) {
                 case 1:
-//                for (int i = 0; i < itemListData.size(); i++) {
-////                    Object get = lst.get(i);
-//                        System.out.println("Item Id: "+itemListData.get(i).getItemId()+"\tItemName: "+itemListData.get(i).getName()+"\tItem Quantity: "+itemListData.get(i).getQuantity());
-//                }
                     application.displayItems(itemListData);
                     break;
                 case 2:
@@ -91,7 +87,6 @@ public class MartApplication {
                     boolean check = false;
                     for (int i = 0; i < itemListData.size(); i++) {
                         if (id == itemListData.get(i).getItemId()) {
-//                                   check = true;
                             arrayList.add(itemListData.get(i));
                             itemListData.remove(i);
                         }
@@ -166,24 +161,17 @@ public class MartApplication {
                                         } else if (updatedQuan > itemListData.get(j).getQuantity()) {
                                             System.out.println("Please Enter only limited Quantity from actual Quantity");
                                         } else {
-
                                             itemListData.get(j).setQuantity((itemListData.get(j).getQuantity() - updatedQuan));
                                             System.out.println("" + userDashboard.get(i).getName() + " added with " + updatedQuan);
-//                                sizeofDashboard = userDashboard.size();
-//                                userDashboard.(new itemList(arrayList.get(0).getItemId(),arrayList.get(0).getName(),quantity));
                                             userDashboard.get(i).setQuantity(userDashboard.get(i).getQuantity() + updatedQuan);
                                         }
-
-//                            itemListData.add(arrayList.get(0));
                                         chec = false;
                                     }
                                     j++;
                                 }
                             }
                         }
-
                     }
-//                        System.exit(0);
                     break;
                 case 6:
                     System.exit(0);
@@ -199,31 +187,21 @@ public class MartApplication {
 
         int randomquantity = 0;
         for (int i = 0; i < itemName.length; i++) {
-//            itemList get = arrayList.get(i);
             arrayList.add(new itemList(i + 1, itemName[i], (int) Math.floor((Math.random() * 200))));
         }
-//        for (int i = 0; i < arrayList.size(); i++) {
-////            itemList get = arrayList.get(i);
-//            System.out.println("Name: "+arrayList.get(i).getName()+" , id: "+arrayList.get(i).getItemId()+" & quantity : "+arrayList.get(i).getQuantity());
-//        }
         return arrayList;
     }
 
     public void displayItems(ArrayList<itemList> al) {
         for (int i = 0; i < al.size(); i++) {
-//         Object object = arr[i];
             System.out.println("Item Id: " + al.get(i).getItemId() + "\tName: " + al.get(i).getName() + "\tQuantity: " + al.get(i).getQuantity());
-
         }
     }
 
     public void addItemInList(ArrayList<itemList> parentList, itemList childList) {
         for (int i = 0; i < parentList.size(); i++) {
-//         Object object = arr[i];
             if (parentList.get(i).getItemId() == childList.getItemId()) {
-
                 parentList.get(i).setQuantity(parentList.get(i).getQuantity() + childList.getQuantity());
-
             }
         }
     }
